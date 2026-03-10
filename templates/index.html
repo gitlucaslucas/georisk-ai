@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>GeoRisk AI</title>
+<style>
+body{
+font-family:Arial;
+background:#0b0f1c;
+color:white;
+padding:40px;
+}
+
+.card{
+background:#1a2138;
+padding:20px;
+margin:10px;
+border-radius:10px;
+}
+
+.high{color:red}
+.medium{color:orange}
+.low{color:lightgreen}
+</style>
+</head>
+
+<body>
+
+<h1>🌍 GeoRisk AI Monitor</h1>
+
+<h2>Global Risk Summary</h2>
+
+<div class="card">
+High Risk: {{high}}
+</div>
+
+<div class="card">
+Medium Risk: {{medium}}
+</div>
+
+<div class="card">
+Low Risk: {{low}}
+</div>
+
+<h2>Latest Conflict News</h2>
+
+{% for n in news %}
+
+<div class="card">
+{{n.title}} <br>
+Risk: <b class="{{n.risk|lower}}">{{n.risk}}</b>
+</div>
+
+{% endfor %}
+
+</body>
+</html>
